@@ -1,6 +1,4 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Montserrat_Alternates } from "next/font/google";
+import { Geist, Geist_Mono, Montserrat_Alternates } from "next/font/google";
 import Nav from "@/components/Nav";
 import "./globals.css";
 
@@ -17,7 +15,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Home - Parashar Das",
   description: "A passionate MERN Stack Developer from Bangladesh!",
 };
@@ -28,17 +26,14 @@ const montserratAlt = Montserrat_Alternates({
   display: 'swap',
 });
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+
+export default function RootLayout({ children }) {
+  const fonts = `${geistSans.variable} ${geistMono.variable} ${montserratAlt.className}`;
+
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${montserratAlt.className} antialiased flex`}
-      >
-      <Nav/>
+    <html lang="en" className="light" data-arp='aa'>
+      <body className={`${fonts} antialiased flex`}>
+        <Nav />
         {children}
       </body>
     </html>

@@ -24,8 +24,10 @@ const Hero = () => {
         <div className="w-full lg:w-1/3 order-1 lg:order-2 relative h-[280px] lg:h-[350px] xl:h-[500px]">
           <Image
           src={img}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
           alt="My profile picture"
-          className="object-cover w-full h-full"
+          className="object-cover"
         />
         </div>
         <div className="w-full lg:w-1/3 order-3 ">

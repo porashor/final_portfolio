@@ -1,6 +1,5 @@
 import React from 'react'
 import SkillCard from "@/components/SkillCard"
-import Learn from './Lear'
 const SkillView = () => {
   return (
     <div className='py-5 lg:py-10 bg-[#f7f7f7] '>
@@ -12,7 +11,6 @@ const SkillView = () => {
             <SkillCard/>
             <SkillCard/>
         </div>
-        <Learn/>
       </div>
     </div>
   )

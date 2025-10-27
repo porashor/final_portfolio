@@ -1,5 +1,6 @@
 "use client";
 import { TypeAnimation } from "react-type-animation";
+
 const Typing = ({text1, text2, text3}) => {
       
   return (

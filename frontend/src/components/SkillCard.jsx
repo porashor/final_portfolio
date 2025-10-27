@@ -2,7 +2,6 @@
 import React from 'react'
 import Image from "next/image";
 import logo from "@/image/react.png"
-import BarShow from './BarShow';
 const SkillCard = () => {
   return (
     <div className='w-[400px] min-h-[150px] bg-white rounded overflow-none grid grid-cols-[1fr_2fr] gap-2 px-2 border border-[#dadada]'>
