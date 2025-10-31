@@ -19,7 +19,7 @@ const SkillBanner = () => {
             <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">
                 Skills
             </h1>
-            <h1 className="text-xl md:text-2xl xl:text-3xl font-bold">I specilized with <Typing text1={'MongoDB'} text2={'Express.js, Node.js'} text3={'React.js, Next.js'} /></h1>
+            <h1 className="text-xl md:text-2xl xl:text-3xl font-thin md:font-bold">I specilized with <Typing text1={'MongoDB'} text2={'Express.js, Node.js'} text3={'React.js, Next.js'} /></h1>
         </div>
         {/*overlay */}
         <div className="w-full h-full bg-dark opacity-80 absolute top-0 left-0 z-1"></div>

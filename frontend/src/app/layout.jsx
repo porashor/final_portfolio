@@ -1,5 +1,7 @@
 import { Geist, Geist_Mono, Montserrat_Alternates } from "next/font/google";
 import Nav from "@/components/Nav";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
 
 
@@ -35,6 +37,7 @@ export default function RootLayout({ children }) {
       <body className={`${fonts} antialiased flex`}>
         <Nav />
         {children}
+        <ToastContainer position="top-right" autoClose={3000} />
       </body>
     </html>
   );

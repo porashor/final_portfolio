@@ -16,7 +16,7 @@ const Typing = ({text1, text2, text3}) => {
       wrapper="span"
       speed={50}
       repeat={Infinity}
-      className="text-xl md:text-2xl xl:text-3xl font-bold"
+      className="text-xl md:text-2xl xl:text-3xl font-thin md:font-bold"
       
     />
   );
