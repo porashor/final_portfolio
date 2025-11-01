@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import connectDB from './db/db.js'
 import skillRoute from './route/skillRoute.js'
 import projectRoute from './route/projectRoute.js'
+import testimonialRoute from './route/testimonialRoute.js'
 import cors from 'cors'
 const app = express()
 dotenv.config()
@@ -23,6 +24,7 @@ app.get('/', (req, res) => {
 })
 app.use('/skill', skillRoute)
 app.use('/project', projectRoute)
+app.use('/testimonial', testimonialRoute)
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
