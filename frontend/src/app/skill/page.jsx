@@ -7,23 +7,10 @@ export const metadata = {
 };
 
 const page = async() => {
-  let data = [];
-
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/skill`, {
-      cache: "no-store", 
-    });
-
-    if (!res.ok) throw new Error("Failed to fetch");
-
-    data = await res.json();
-  } catch (error) {
-    console.error("SSR fetch error:", error.message);
-  }
   return (
     <div className='w-full'>
       <SkillBanner/>
-      <SkillView data={data}/>
+      <SkillView/>
     </div>
   )
 }

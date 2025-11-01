@@ -1,7 +1,10 @@
+'use client'
 import SkillCard from "@/components/SkillCard";
-
-export default function SkillView({data}) {
-  console.log(data)
+import { upSkill } from "@/Store/Zustand";
+import { useEffect } from "react";
+export default function SkillView() {
+  const {getloading, onGet, allSkill} = upSkill();
+  useEffect(() => {onGet()}, [])
   const stack = [
     "frontend",
     "backend",
@@ -18,6 +21,7 @@ export default function SkillView({data}) {
     "cms",
     "api",
   ];
+  const data = allSkill;
   return (
     <div className="py-5 lg:py-10 bg-[#f7f7f7] ">
       {/* frontend  */}
