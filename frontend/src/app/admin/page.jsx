@@ -4,6 +4,7 @@ import SkillReview from '../../Admin/SkillReview'
 import ProjectForm from '../../Admin/ProjectForm'
 import ProjectReview from '../../Admin/ProjectReview'
 import TestimonialForm from '../../Admin/TestimonialForm'
+import TestimonialReview from '../../Admin/TestimonialReview'
 const page = () => {
   return (
     <div className='bg-white'>
@@ -12,6 +13,7 @@ const page = () => {
       <ProjectForm/>
       <ProjectReview/>
       <TestimonialForm/>
+      <TestimonialReview/>
     </div>
   )
 }
