@@ -1,48 +1,58 @@
 import express from 'express'
 const router = express.Router()
-import Skill from '../schema/skillSchema.js'
+import Project from '../schema/projectSchema.js'
 import upload from '../multer/multer.js'
 import cloudinary from '../cloudnary/cloudnary.js'
 
 
+
 router.get('/', async (req, res) => {
     try {
-        const skills = await Skill.find()
-        res.status(200).json(skills)
+        const projects = await Project.find()
+        res.status(200).json(projects)
     } catch (error) {
         res.status(500).json({ error: error.message })
     }
 })
+
+
+
 
 router.post('/', upload.single('image'), async (req, res) => {
-    const { name, pogress, description, state } = req.body
-    try {
+    const { name, description, siteType, role, features, technologies, link, buyer, gotPrice } = req.body
+    try{
         const result = await cloudinary.uploader.upload(req.file.path, {
-            folder: 'skill',
+            folder: 'project',
         })
-        console.log(result)
-
-        const skill = await Skill.create({
+        const projects = await Project.create({
             name,
             image : result.secure_url,
-            pogress,
             description,
-            state
+            siteType,
+            role,
+            features,
+            technologies,
+            link,
+            buyer,
+            gotPrice
         })
-        res.status(200).json(skill)
-    } catch (error) {
-        console.log(error)
+        res.status(200).json(projects)
+    }catch(err){
+        console.log(err)
     }
 })
 
+
 router.delete('/:id', async (req, res) => {
+    const { id } = req.params
     try {
-        const skill = await Skill.findByIdAndDelete(req.params.id)
-        res.status(200).json(skill)
+        const projects = await Project.findByIdAndDelete(id)
+        res.status(200).json(projects)
     } catch (error) {
         res.status(500).json({ error: error.message })
     }
 })
+
 
 
 export default router
