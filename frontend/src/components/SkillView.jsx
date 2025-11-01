@@ -1,15 +1,7 @@
 import SkillCard from "@/components/SkillCard";
-const SkillView = async () => {
-  let data = [];
-  let loading = true;
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/skill`);
-    data = await res.json();
-  } catch (error) {
-    console.error("Upload error:", error);
-  } finally {
-    loading = false;
-  }
+
+export default function SkillView({data}) {
+  console.log(data)
   const stack = [
     "frontend",
     "backend",
@@ -35,7 +27,7 @@ const SkillView = async () => {
             {item}
           </h1>
           <div className="py-5 lg:py-10 flex flex-wrap gap-5 w-[95%] lg:w-[85%] mx-auto items-center justify-start">
-            {data
+            {Array.isArray(data) && data
               .filter((a) => a.state === item)
               .map((skill, index) => (
                 <SkillCard key={index} skill={skill} />
@@ -47,5 +39,4 @@ const SkillView = async () => {
   );
 };
 
-export default SkillView;
 
