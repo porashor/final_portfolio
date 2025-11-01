@@ -6,11 +6,20 @@ export const metadata = {
   description: "Learn more about Parashar, a full-stack MERN developer specializing in React, Express, and MongoDB.",
 };
 
-
 const page = async() => {
-   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/skill`);
-    const data = await res.json();
-    
+  let data = [];
+
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/skill`, {
+      cache: "no-store", 
+    });
+
+    if (!res.ok) throw new Error("Failed to fetch");
+
+    data = await res.json();
+  } catch (error) {
+    console.error("SSR fetch error:", error.message);
+  }
   return (
     <div className='w-full'>
       <SkillBanner/>
