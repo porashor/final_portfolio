@@ -1,16 +1,15 @@
-import React from 'react'
+'use client'
 import BlogCard from './BlogCard'
+import { useEffect } from 'react'
+import { blogHandle } from '../Store/BlogZus'
 
 const BlogBox = () => {
+  const {getloading, onGet, allBlog} = blogHandle()
+  useEffect(() => {onGet()}, [])
   return (
     <div className='bg-[#f0f0f0] py-5 lg:py-10'>
       <div className='w-[90%] md:w-[80%] lg:w-[60%] xl:[50%] mx-auto space-y-2 lg:space-y-5'>
-        <BlogCard/>
-        <BlogCard/>
-        <BlogCard/>
-        <BlogCard/>
-        <BlogCard/>
-        <BlogCard/>
+        {getloading ? "loading " : allBlog.map((blog, index) => (<BlogCard key={index} blog={blog}/>))}
       </div>
     </div>
   )
