@@ -57,10 +57,9 @@ export const TestimonialHandle = create((set) => ({
     delloading: false,
     delid: "",
     onDel: async (id) => {
-        set({ delid: id });
-        set({ delloading: true });
+        set({ delid: id, delloading: true  });
         try {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/testimonial${id}`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/testimonial/${id}`, {
                 method: "DELETE",
             });
             const appdata = await res.json();
