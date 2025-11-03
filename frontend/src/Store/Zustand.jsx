@@ -70,7 +70,7 @@ export const upSkill = create((set) => ({
     set({ delloading: true });
     console.log(id)
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/skill${id}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/skill/${id}`, {
         method: "DELETE",
       });
       const appdata = await res.json();

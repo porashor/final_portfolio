@@ -15,7 +15,7 @@ const SkillCard = ({skill}) => {
                 <div style={{ width: `${wi}%`}} className={`h-[5px] bg-blue-600 rounded-4xl trunsition-all ease-in-out duration-500`}></div>
             </div>
         </div>
-        <div className='line-clamp-3'>
+        <div className='line-clamp-3 font-thin text-xs capitalize'>
             {skill.description}
         </div>
       </div>
