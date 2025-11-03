@@ -13,6 +13,11 @@ const SkillForm = () => {
               <option value="state">State</option>
               <option value="route">Route</option>
               <option value="ui/ux">UI/UX</option>
+              <option value="graphics">Graphics</option>
+              <option value="file">File</option>
+              <option value="package">Package</option>
+              <option value="token">Token</option>
+              <option value="ai">AI</option>
               <option value="websocket">Web Socket</option>
               <option value="version control">Version Control</option>
               <option value="virtual">Virtual</option>

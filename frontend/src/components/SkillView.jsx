@@ -11,6 +11,11 @@ export default function SkillView() {
     "state",
     "route",
     "ui/ux",
+    "graphics",
+    "file",
+    "package",
+    "token",
+    "ai",
     "websocket",
     "version control",
     "virtual",
@@ -27,7 +32,7 @@ export default function SkillView() {
       {/* frontend  */}
       {stack.map((item, index) => (
         <div key={index}>
-          <h1 className="py-2 lg:py-5 bg-light text-2xl lg:text-3xl font-bold ">
+          <h1 className="py-2 lg:py-5 bg-light text-2xl lg:text-3xl font-bold capitalize">
             {item}
           </h1>
           <div className="py-5 lg:py-10 flex flex-wrap gap-5 w-[95%] lg:w-[85%] mx-auto items-center justify-start">
