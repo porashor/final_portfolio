@@ -16,6 +16,15 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.get('/:id', async (req, res) => {
+    try {
+        const blog = await Blog.findById(req.params.id)
+        res.status(200).json(blog)
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+    }
+})
+
 
 router.post('/', upload.single("image"), async (req, res) => {
     const { title, description, autor } = req.body
