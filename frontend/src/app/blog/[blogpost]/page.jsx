@@ -34,7 +34,7 @@ const timeAgo = formatDistanceToNow(new Date(data.createdAt), { addSuffix: true 
         <p>autor : {data.autor}</p>
         <p>Posted on : {timeAgo}</p>
       </div>
-      <div className="w-[90%] mx-auto text-lg lg:text-xl leading-11 pb-5 lg:pb-10">
+      <div className="w-[90%] mx-auto text-lg lg:text-xl leading-11 pb-5 lg:pb-10 prose prose-lg prose-slate">
         <ReactMarkdown>{data.description}</ReactMarkdown>
       </div>
     </div>

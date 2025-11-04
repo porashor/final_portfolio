@@ -1,11 +1,9 @@
 import { Geist, Geist_Mono, Montserrat_Alternates } from "next/font/google";
+import MobileNav from "@/components/MobileNav";
 import Nav from "@/components/Nav";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
-
-
-
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,21 +21,23 @@ export const metadata = {
 };
 
 const montserratAlt = Montserrat_Alternates({
-  subsets: ['latin'],
-  weight: ['400', '700'], // customize as needed
-  display: 'swap',
+  subsets: ["latin"],
+  weight: ["400", "700"], // customize as needed
+  display: "swap",
 });
-
 
 export default function RootLayout({ children }) {
   const fonts = `${geistSans.variable} ${geistMono.variable} ${montserratAlt.className}`;
 
   return (
-    <html lang="en" className="light" data-arp='aa'>
-      <body className={`${fonts} antialiased flex`}>
-        <Nav />
-        {children}
-        <ToastContainer position="top-right" autoClose={3000} />
+    <html lang="en" className="light" data-arp="aa">
+      <body className={`${fonts} antialiased`}>
+        <MobileNav />
+        <div className="flex">
+          <Nav />
+          {children}
+          <ToastContainer position="top-right" autoClose={3000} />
+        </div>
       </body>
     </html>
   );

@@ -1,7 +1,6 @@
 'use client'
 import React, {useState} from 'react'
 import { FaChevronRight } from 'react-icons/fa'
-import { PiArrowArcRight } from 'react-icons/pi'
 import { FaHome } from "react-icons/fa";
 import logo from '@/image/Parashar_logo.png'
 import Image from 'next/image';
@@ -25,7 +24,7 @@ const Nav = () => {
     }, 3000)
   }
   return (
-    <div className={`${isOpen ? 'w-[50px] lg:w-[60px]' : ' w-[200px] lg:w-[280px]'} transition-all ease-in-out duration-600  sticky top-0 left-0 h-screen bg-light flex flex-col items-center`}>
+    <div className={`${isOpen ? 'w-[50px] lg:w-[60px]' : ' w-[200px] lg:w-[280px]'} hidden transition-all ease-in-out duration-600  sticky top-0 left-0 h-screen bg-light md:flex flex-col items-center`}>
       <Link href="/" className='flex items-center gap-1 w-full py-5'> <span className='flex-center rounded w-[50px] lg:w-[60px] aspect-square'>
         <Image src={logo} alt="My profile picture" className="object-cover w-full h-full"/>
         </span> <span className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? 'opacity-0 scale-0 w-0' : 'opacity-100 scale-100 w-auto'} text-xs lg:text-lg logo-light font-semibold `}>Parashar Das</span></Link>
