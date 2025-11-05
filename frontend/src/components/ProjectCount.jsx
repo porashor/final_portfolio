@@ -3,7 +3,7 @@ import React from 'react'
 import CountUp from 'react-countup';
 const ProjectCount = () => {
   return (
-    <div className='bg-light py-5 lg:py-10 flex items-center justify-evenly gap-5 text-2xl font-bold my-5'>
+    <div className='bg-light py-5 lg:py-10 flex flex-wrap items-center justify-evenly gap-5 text-2xl font-bold my-5'>
       <div className='flex flex-col items-center justify-center gap-2'>
         <h1>PSD to html</h1>
         <h1><CountUp end={100} duration={3}/>+</h1>

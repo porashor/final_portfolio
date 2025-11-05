@@ -8,7 +8,7 @@ const RworkCard = ({data}) => {
       <div className='relative w-full h-full'>
         <Image src={data.image} fill alt="My profile picture" className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
       </div>
-      <div className='absolute w-full h-full top-0 right-0 bg bg-[#000000e7] opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out logo-dark flex flex-col items-center justify-center gap-2 p-2'>
+      <div className='absolute w-full h-full top-0 right-0 bg bg-[#000000e7]    opacity-100 md:opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out logo-dark flex flex-col items-center justify-center gap-2 p-2'>
         <div className='flex items-center justify-center gap-1'>
             {arr.map((a,i)=><IoIosStar key={i} className="text-yellow-400" />)}
         </div>

@@ -16,8 +16,8 @@ const RecentWorks = () => {
         I always try to provide best service to my clients and mantain a good
         relationship with my clients
       </p>
-      <div className="flex justify-center py-5 lg:py-10">
-        <div className="flex flex-wrap items-center justify-start">
+      <div className="flex justify-center items-center py-5 lg:py-10 mx-auto w-fit">
+        <div className="block md:flex flex-wrap items-center justify-start w-full">
         {/* card */}
         {getloading
           ? "loading "

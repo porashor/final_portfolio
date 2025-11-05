@@ -35,12 +35,14 @@ export default function SkillView() {
           <h1 className="py-2 lg:py-5 bg-light text-2xl lg:text-3xl font-bold capitalize">
             {item}
           </h1>
-          <div className="py-5 lg:py-10 flex flex-wrap gap-5 w-[95%] lg:w-[85%] mx-auto items-center justify-start">
+          <div className="w-[95%] lg:w-[85%] mx-auto">
+            <div className="py-5 lg:py-10 block md:flex flex-wrap gap-5 w-fit md:w-full mx-auto items-center justify-start">
             {Array.isArray(data) && data
               .filter((a) => a.state === item)
               .map((skill, index) => (
                 <SkillCard key={index} skill={skill} />
               ))}
+          </div>
           </div>
         </div>
       ))}

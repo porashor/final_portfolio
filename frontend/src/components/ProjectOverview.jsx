@@ -12,7 +12,7 @@ const ProjectOverview = () => {
       <p className='w-[90%] lg:w-[50%] mx-auto '>There are many variations of passages of frontend, backend, html, database setup etc.</p>
       <div className='py-5 lg:py-10 w-[95%] lg:w-[80%] mx-auto '>
         {
-          getloading ? "loading " : <div className='w-full flex flex-wrap gap-5 items-center justify-start'>{allproject.length > 0 ? allproject.map((project, index) => (<ProjectCard key={index} project={project}/>)) : "no project found"}</div>
+          getloading ? "loading " : <div className='block w-fit md:w-full mx-auto md:flex flex-wrap gap-5 items-center justify-start'>{allproject.length > 0 ? allproject.map((project, index) => (<ProjectCard key={index} project={project}/>)) : "no project found"}</div>
         }
       </div>
     </div>
