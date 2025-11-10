@@ -15,9 +15,19 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.get('/:id', async (req, res) => {
+    try {
+        const recentworks = await Recentwork.findById({_id: req.params.id})
+        res.status(200).json(recentworks)
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+    }
+})
+
 
 router.post('/', upload.single('image'), async (req, res) => {
-    const { name, description, links, technologies, features, stack, duration, rate } = req.body
+    const { name, description, links, tecnologies, features, stack, duration, rate } = req.body
+    console.log(tecnologies)
     try {
         const result = await cloudinary.uploader.upload(req.file.path, {
             folder: 'recentwork',
@@ -27,7 +37,7 @@ router.post('/', upload.single('image'), async (req, res) => {
             image : result.secure_url,
             description,
             links,
-            technologies,
+            tecnologies,
             features,
             stack,
             duration,

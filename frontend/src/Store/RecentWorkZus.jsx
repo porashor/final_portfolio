@@ -29,6 +29,7 @@ export const RecentWorkHandles = create((set) => ({
         e.preventDefault()
         const features = feature.split(',')
         const tecnology = tecnologies.split(',')
+        console.log(tecnology)
         const linkss = links.split(',')
         const formData = new FormData()
         formData.append('image', image)
