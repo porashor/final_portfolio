@@ -1,5 +1,4 @@
-import React from 'react'
-import img from '@/image/Parashar_about.png'
+import Link from 'next/link'
 const ProjectCard = ({project}) => {
   return (
     <div className="w-[350px] min-h-[400px] bg-white rounded overflow-none flex flex-col">
@@ -15,7 +14,7 @@ const ProjectCard = ({project}) => {
         {project.description}
       </p>
       <p className="font-semibold mx-1">Role: {project.role}</p>
-      <a href={"project/"+project._id} className='muted-rose py-2 logo-dark my-2 mx-1 hover:scale-101 transition-all ease-in-out duration-500 rounded text-center'>see more</a>
+      <Link href={"project/"+project._id} className='muted-rose py-2 logo-dark my-2 mx-1 hover:scale-101 transition-all ease-in-out duration-500 rounded text-center'>see more</Link>
     </div>
   )
 }

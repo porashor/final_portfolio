@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { IoIosStar } from "react-icons/io";
+import Link from 'next/link'
 const RworkCard = ({data}) => {
     const arr = Array.from({ length: data.rate }, (_, i) => i)
   return (
@@ -15,7 +16,7 @@ const RworkCard = ({data}) => {
         <h1 className='text-2xl font-bold text-center'>{data.name}</h1>
         <h1 className='text-xl font-bold text-center'>{data.stack}</h1>
         <p className='text-sm font-thin text-center'>{data.description}</p>
-        <a href={`recentworks/${data._id}`}>see more</a>
+        <Link href={`recentworks/${data._id}`}>see more</Link>
       </div>
     </div>
   )

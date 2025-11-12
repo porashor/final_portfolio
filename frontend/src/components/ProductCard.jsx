@@ -1,6 +1,5 @@
-import React from "react";
 import Image from "next/image";
-import img from "@/image/blog_banner.jpg";
+import Link from "next/link";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import { IoCheckmarkDoneOutline } from "react-icons/io5";
 const ProductCard = ({ plan }) => {
@@ -30,9 +29,9 @@ const ProductCard = ({ plan }) => {
             ))
           }
         </div>
-        <a href={`/plan/${plan._id}`} className="muted-rose logo-dark text-xl py-1 px-2 ">
+        <Link href={`/plan/${plan._id}`} className="muted-rose logo-dark text-xl py-1 px-2 ">
           get started
-        </a>
+        </Link>
       </div>
     </div>
   );

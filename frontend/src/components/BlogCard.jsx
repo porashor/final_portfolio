@@ -1,5 +1,6 @@
 import { formatDistanceToNow } from "date-fns";
 import Image from 'next/image'
+import Link from 'next/link'
 const BlogCard = ({blog}) => {
   const timeAgo = formatDistanceToNow(new Date(blog.createdAt), { addSuffix: true });
   return (
@@ -12,7 +13,7 @@ const BlogCard = ({blog}) => {
             <h1 className='text-sm font-thin'><span className='font-bold'>Author:</span> {blog.autor}</h1>
             <p className='text-sm font-thin line-clamp-2'>{blog.description}</p>
             <div className='flex items-center justify-between'>
-              <a href={"blog/"+blog._id}className='muted-rose logo-dark text-xs py-1 px-2 font-thin'>read more</a>
+              <Link href={"blog/"+blog._id}className='muted-rose logo-dark text-xs py-1 px-2 font-thin'>read more</Link>
                 <p className='font-thin text-xs'>{timeAgo}</p>
             </div>
         </div>
