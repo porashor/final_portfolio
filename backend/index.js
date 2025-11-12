@@ -7,6 +7,7 @@ import testimonialRoute from './route/testimonialRoute.js'
 import blogRoute from './route/blogRoute.js'
 import consultantRoute from './route/consultantRoute.js'
 import RecentworkRouter from './route/RecentworkRouter.js'
+import planRoute from './route/planRoute.js'
 import cors from 'cors'
 const app = express()
 dotenv.config()
@@ -31,6 +32,7 @@ app.use('/testimonial', testimonialRoute)
 app.use('/blog', blogRoute)
 app.use('/consultant', consultantRoute)
 app.use('/recentwork', RecentworkRouter)
+app.use('/plan', planRoute)
 
 
 app.listen(port, () => {

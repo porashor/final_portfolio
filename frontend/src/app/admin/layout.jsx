@@ -4,7 +4,7 @@ import AdminNav from '@/Admin/AdminNav'
 const layout = ({children}) => {
   return (
     <div className='w-full'>
-      <AdminNav/>
+      {/* <AdminNav/> */}
       {children}
       <Foother/>
     </div>
