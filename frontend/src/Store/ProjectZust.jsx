@@ -29,15 +29,19 @@ export const projectHandle = create((set) => ({
 
     onSubmit: async (e, image, fname, feature, tecnoliges, buyer, description, links, siteType, role, selary)=>{
         e.preventDefault()
+        const tecnology = tecnoliges.split(',');
+        const linkss = links.split(',');
+        const features = feature.split(',');
+        console.log(tecnology, linkss, features)
         set({ subloading: true });
         const formData = new FormData();
         formData.append("image", image);
         formData.append("name", fname);
-        formData.append("feature", feature);
-        formData.append("tecnoliges", tecnoliges);
+        formData.append("feature", JSON.stringify(features));
+        formData.append("tecnoliges", JSON.stringify(tecnology));
         formData.append("buyer", buyer);
         formData.append("description", description);
-        formData.append("links", links);
+        formData.append("links", JSON.stringify(linkss));
         formData.append("siteType", siteType);
         formData.append("role", role);
         formData.append("selary", selary);
@@ -78,7 +82,7 @@ export const projectHandle = create((set) => ({
       set({ delid: id });
       set({ delloading: true });
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/project${id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/project/${id}`, {
           method: "DELETE",
         });
         const appdata = await res.json();

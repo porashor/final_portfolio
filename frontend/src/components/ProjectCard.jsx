@@ -15,7 +15,7 @@ const ProjectCard = ({project}) => {
         {project.description}
       </p>
       <p className="font-semibold mx-1">Role: {project.role}</p>
-      <button className='muted-rose py-2 logo-dark my-2 mx-1 hover:scale-105 transition-all ease-in-out duration-500 rounded'>see more</button>
+      <a href={"project/"+project._id} className='muted-rose py-2 logo-dark my-2 mx-1 hover:scale-101 transition-all ease-in-out duration-500 rounded text-center'>see more</a>
     </div>
   )
 }

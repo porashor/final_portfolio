@@ -16,10 +16,19 @@ router.get('/', async (req, res) => {
 })
 
 
+router.get('/:id', async (req, res) => {
+    try {
+        const projects = await Project.findById(req.params.id)
+        res.status(200).json(projects)
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+    }
+})
+
 
 
 router.post('/', upload.single('image'), async (req, res) => {
-    const { name, description, siteType, role, features, technologies, link, buyer, gotPrice } = req.body
+    const { name, description, siteType, role, feature, tecnoliges, links, buyer, selary} = req.body
     try{
         const result = await cloudinary.uploader.upload(req.file.path, {
             folder: 'project',
@@ -30,11 +39,11 @@ router.post('/', upload.single('image'), async (req, res) => {
             description,
             siteType,
             role,
-            features,
-            technologies,
-            link,
+            features : feature,
+            technologies : tecnoliges,
+            link : links,
             buyer,
-            gotPrice
+            gotPrice: selary
         })
         res.status(200).json(projects)
     }catch(err){
