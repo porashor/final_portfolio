@@ -8,8 +8,9 @@ const ProjectCard = ({project}) => {
         className="w-full aspect-square object-cover"
       />
       <div className="text-center flex items-center justify-center gap-1 py-3 text-2xl font-bold line-clamp-1">
-        {project.name} <span className='text-sm font-medium'>- {project.siteType}</span>
+        {project.name}
       </div>
+      <h6 className='text-sm font-thin uppercase'>{project.siteType}</h6>
       <p className="text-justify px-1 line-clamp-4 min-h-[80px]">
         {project.description}
       </p>

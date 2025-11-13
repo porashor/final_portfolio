@@ -56,7 +56,7 @@ const page = async ({params}) => {
             <h1 className='text-xl lg:text-2xl font-bold'>Links</h1>
             <ul className='list-none list-inside'>
                 {
-                    links.map((feature, i) => <li key={i}>✔️ {feature}</li>)
+                    links.map((feature, i) => <li href={feature} className='w-full' key={i}><a href={feature}>✔️ {feature}</a></li>)
                 }
             </ul>
         </div>
