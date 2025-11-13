@@ -24,7 +24,7 @@ const Nav = () => {
     }, 3000)
   }
   return (
-    <div className={`${isOpen ? 'w-[50px] lg:w-[60px]' : ' w-[200px] lg:w-[280px]'} hidden transition-all ease-in-out duration-600  sticky top-0 left-0 h-screen bg-light md:flex flex-col items-center`}>
+    <div className={`${isOpen ? 'w-[50px] lg:w-[65px]' : ' w-[200px] lg:w-[280px]'} hidden transition-all ease-in-out duration-600  sticky top-0 left-0 h-screen bg-light md:flex flex-col items-center`}>
       <Link href="/" className='flex items-center gap-1 w-full py-5'> <span className='flex-center rounded w-[50px] lg:w-[60px] aspect-square'>
         <Image src={logo} alt="My profile picture" className="object-cover w-full h-full"/>
         </span> <span className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? 'opacity-0 scale-0 w-0' : 'opacity-100 scale-100 w-auto'} text-xs lg:text-lg logo-light font-semibold `}>Parashar Das</span></Link>
@@ -33,13 +33,13 @@ const Nav = () => {
       <nav className='py-2 px-2 md:px-3 text-xl w-full z-10'>
         <ul>
           <li className='w-full flex flex-col gap-2 lg:gap-3'>
-            <Link href="/" className='flex items-center gap-2'> <span className='flex-center bg-dark p-1 md:p-2 rounded'><FaHome/></span> <span className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? 'opacity-0 w-0 scale-0' : 'opacity-100 scale-100 w-auto'} `}>Home</span></Link>
-            <Link href="/about" className='flex items-center gap-2'> <span className='flex-center bg-dark p-1 md:p-2 rounded'><FcAbout/></span> <span className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? 'opacity-0 w-0 scale-0' : 'opacity-100 scale-100 w-auto'} `}>About</span></Link>
-            <Link href="/skill" className='flex items-center gap-2'> <span className='flex-center bg-dark p-1 md:p-2 rounded'><GiSkills/></span> <span className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? 'opacity-0 w-0 scale-0' : 'opacity-100 scale-100 w-auto'} `}>Skills</span></Link>
-            <Link href="/project" className='flex items-center gap-2'> <span className='flex-center bg-dark p-1 md:p-2 rounded'><GrProjects/></span> <span className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? 'opacity-0 w-0 scale-0' : 'opacity-100 scale-100 w-auto'} `}>Projects</span></Link>
-            <Link href="/blog" className='flex items-center gap-2'> <span className='flex-center bg-dark p-1 md:p-2 rounded'><FaBlog/></span> <span className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? 'opacity-0 w-0 scale-0' : 'opacity-100 scale-100 w-auto'} `}>Blogs</span></Link>
-            <Link href="/plan" className='flex items-center gap-2'> <span className='flex-center bg-dark p-1 md:p-2 rounded'><HiMiniShoppingCart/></span> <span className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? 'opacity-0 w-0 scale-0' : 'opacity-100 scale-100 w-auto'} `}>Plans</span></Link>
-            <Link href="/contact" className='flex items-center gap-2'> <span className='flex-center bg-dark p-1 md:p-2 rounded'><MdContactPhone/></span> <span className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? 'opacity-0 w-0 scale-0' : 'opacity-100 scale-100 w-auto'} `}>Contact</span></Link>
+            <Link href="/" className='flex items-center gap-2 focus:bg-black/20 p-1 rounded-xl'> <span className='flex-center bg-dark p-1 md:p-2 rounded'><FaHome/></span> <span className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? 'opacity-0 w-0 scale-0' : 'opacity-100 scale-100 w-auto'} `}>Home</span></Link>
+            <Link href="/about" className='flex items-center gap-2 focus:bg-black/20 p-1  rounded-xl'> <span className='flex-center bg-dark p-1 md:p-2 rounded'><FcAbout/></span> <span className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? 'opacity-0 w-0 scale-0' : 'opacity-100 scale-100 w-auto'} `}>About</span></Link>
+            <Link href="/skill" className='flex items-center gap-2 focus:bg-black/20 p-1  rounded-xl'> <span className='flex-center bg-dark p-1 md:p-2 rounded'><GiSkills/></span> <span className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? 'opacity-0 w-0 scale-0' : 'opacity-100 scale-100 w-auto'} `}>Skills</span></Link>
+            <Link href="/project" className='flex items-center gap-2 focus:bg-black/20 p-1  rounded-xl'> <span className='flex-center bg-dark p-1 md:p-2 rounded'><GrProjects/></span> <span className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? 'opacity-0 w-0 scale-0' : 'opacity-100 scale-100 w-auto'} `}>Projects</span></Link>
+            <Link href="/blog" className='flex items-center gap-2 focus:bg-black/20 p-1  rounded-xl'> <span className='flex-center bg-dark p-1 md:p-2 rounded'><FaBlog/></span> <span className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? 'opacity-0 w-0 scale-0' : 'opacity-100 scale-100 w-auto'} `}>Blogs</span></Link>
+            <Link href="/plan" className='flex items-center gap-2 focus:bg-black/20 p-1  rounded-xl'> <span className='flex-center bg-dark p-1 md:p-2 rounded'><HiMiniShoppingCart/></span> <span className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? 'opacity-0 w-0 scale-0' : 'opacity-100 scale-100 w-auto'} `}>Plans</span></Link>
+            <Link href="/contact" className='flex items-center gap-2 focus:bg-black/20 p-1  rounded-xl'> <span className='flex-center bg-dark p-1 md:p-2 rounded'><MdContactPhone/></span> <span className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? 'opacity-0 w-0 scale-0' : 'opacity-100 scale-100 w-auto'} `}>Contact</span></Link>
           </li>
         </ul>
       </nav>

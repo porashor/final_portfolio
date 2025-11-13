@@ -30,19 +30,19 @@ const page = async ({params}) => {
                 {Array.from({ length: data.rate }, (_, i) => i).map((a,i)=><IoIosStar key={i} className="text-yellow-400" />)}
             </div>
         </div>
-        <div className='flex gap-2 items-center'>
+        <div className='flex flex-col gap-2 items-start'>
             <h1 className='text-xl font-bold'>Features:</h1>
-            <div className='flex items-center gap-1'>
+            <div className='flex flex-col items-start gap-1'>
                 {feature.map((a,i)=><p key={i}>{a},</p>)}
             </div>
         </div>
-        <div className='flex gap-2 items-center'>
+        <div className='flex flex-col gap-2 items-start'>
             <h1 className='text-xl font-bold'>Tecnologies:</h1>
-            <div className='flex items-center gap-1'>
+            <div className='flex flex-col items-start gap-1'>
                 {tecnology.map((a,i)=><p key={i}>{a},</p>)}
             </div>
         </div>
-        <div className='flex gap-2 items-start'>
+        <div className='flex flex-col gap-2 items-start'>
             <h1 className='text-xl font-bold'>All links:</h1>
             <div className='space-y-2'>
                 {link.map((a,i)=><li className='list-none' key={i}><a href={`${a}`} target="_blank" rel="noopener noreferrer" className='hover:underline '>{a},</a></li>)}
