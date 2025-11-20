@@ -5,7 +5,7 @@ import Link from 'next/link'
 const RworkCard = ({data}) => {
     const arr = Array.from({ length: data.rate }, (_, i) => i)
   return (
-    <div className='group relative w-[350px] md:w-[450px] aspect-square overflow-hidden'>
+    <div className='group relative w-[350px] md:w-[450px] aspect-square overflow-hidden my-2 md:my-0'>
       <div className='relative w-full h-full'>
         <Image src={data.image} fill alt="My profile picture" className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
       </div>

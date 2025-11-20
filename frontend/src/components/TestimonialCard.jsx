@@ -4,7 +4,7 @@ const TestimonialCard = ({testimonials}) => {
   const arr = Array.from({ length: testimonials.rating }, (_, i) => i);
   console.log(arr)
   return (
-    <div className="w-[350px] min-h-[400px] bg-light rounded-2xl py-10 px-3 hover:scale-105 transition-all ease-in-out duration-500">
+    <div className="w-[350px] min-h-[400px] bg-light rounded-2xl py-10 px-3 hover:scale-105 transition-all ease-in-out duration-500 my-3">
       <img
         src={testimonials.image}
         alt=""

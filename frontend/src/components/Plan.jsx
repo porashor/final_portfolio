@@ -13,7 +13,7 @@ const Plan = async () => {
     <div className='py-5 lg:py-10 bg-[#eeeeee] '>
           {/* frontend  */}
           <div>
-            <div className='py-5 lg:py-10 flex flex-wrap gap-5 w-[95%] lg:w-[85%] mx-auto items-center justify-start'>
+            <div className='py-5 lg:py-10 w-fit md:flex flex-wrap gap-5 lg:w-[85%] mx-auto items-center justify-start'>
                 { data.map((plan, index) => (
                     <ProductCard key={index} plan={plan}/>
                 ))}

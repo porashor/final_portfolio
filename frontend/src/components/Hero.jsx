@@ -1,6 +1,6 @@
 
 import React from "react";
-import img from "../image/Parashar_das.png";
+import img from "../../public/Parashar_Das.png";
 import Image from "next/image";
 import Typing from "./Typing";
 import CallToAction from "./CTA";
