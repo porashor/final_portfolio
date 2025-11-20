@@ -15,7 +15,7 @@ const RworkCard = ({data}) => {
         </div>
         <h1 className='text-2xl font-bold text-center'>{data.name}</h1>
         <h1 className='text-xl font-bold text-center'>{data.stack}</h1>
-        <p className='text-sm font-thin text-center'>{data.description}</p>
+        <p className='text-sm font-thin text-center line-clamp-6 '>{data.description}</p>
         <Link href={`recentworks/${data._id}`}>see more</Link>
       </div>
     </div>

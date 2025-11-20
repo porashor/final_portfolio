@@ -17,8 +17,8 @@ const TestimonialCard = ({testimonials}) => {
       <h1 className="text-center font-bold text-2xl py-3">
         {testimonials.name}
       </h1>
-      <p className="text-center min-h-[120px] line-clamp-4">
-        <span className="text-6xl font-bold">"</span>
+      <p className="text-center min-h-[120px] line-clamp-4 h-[130px]">
+        <span className="text-6xl font-bold ">"</span>
         {testimonials.description}
       </p>
     </div>
