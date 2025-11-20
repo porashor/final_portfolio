@@ -12,7 +12,7 @@ import cors from 'cors'
 const app = express()
 dotenv.config()
 app.use(cors({
-    origin: ['http://localhost:3000', "https://portfolio-cdhx.onrender.com"],
+    origin: ['http://localhost:3000', "https://portfolio-cdhx.onrender.com", "https://parashardaspro.netlify.app"],
     credentials: true
 }))
 connectDB()
