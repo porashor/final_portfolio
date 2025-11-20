@@ -63,6 +63,7 @@ export const RecentWorkHandles = create((set) => ({
     delloading: false,
     onDel: async (id) => {
         set({ delid: id, delloading: true  });
+        console.log('called')
         try {
             const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/recentwork/${id}`, {
                 method: "DELETE",

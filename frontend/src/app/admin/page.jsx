@@ -11,6 +11,7 @@ import BlogReview from "../../Admin/BlogReview";
 import RecentWorks from "../../Admin/RecentWorkForm";
 import PlanForm from "../../Admin/PlanForm";
 import PlanReview from "../../Admin/PlanReview";
+import RecentReviews from "../../Admin/RecentReviews";
 const page = () => {
   const [ctrl, setCtrl] = useState('skill')
   const arr = ["skill", "project", "testimonial", "blog", "recentworks", "plan"];
@@ -41,6 +42,7 @@ const page = () => {
       </div>
       <div className={`${ctrl === "recentworks" ? "block" : "hidden"}`}>
         <RecentWorks />
+        <RecentReviews/>
       </div>
       <div className={`${ctrl === "plan" ? "block" : "hidden"}`}>
         <PlanForm />
