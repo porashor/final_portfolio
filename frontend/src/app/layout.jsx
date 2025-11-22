@@ -18,6 +18,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Home - Parashar Das",
   description: "A passionate MERN Stack Developer from Bangladesh!",
+  verification: {
+    google: "kJXqt4Tm75TBkTEKXChGajUwOMqQPMBffQgawkx78LE",
+  },
 };
 
 const montserratAlt = Montserrat_Alternates({
