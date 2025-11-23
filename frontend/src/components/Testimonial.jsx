@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import {TestimonialHandle} from "@/Store/TestimonialZus"
 import TestimonialCard from "./TestimonialCard";
-
+import SkeletonCard from "@/loaders/SkeletionCard";
 const Testimonial = () => {
   const {allTestimonial, getloading, onGet} = TestimonialHandle()
   useEffect(() => {onGet()}, [])
@@ -12,7 +12,7 @@ const Testimonial = () => {
       <p className='w-[80%] lg:w-[50%] xl:w-[40%] mx-auto text-center'>I always try to provide best service to my clients and mantain a good relationship with my clients</p>
       <div className='py-5 lg:py-10 block md:flex flex-wrap items-center justify-start gap-5 lg:gap-10 w-fit md:w-[90%] mx-auto'>
         {/* card */}
-        {getloading ? "loading " : allTestimonial.map((testimonial, index) => (<TestimonialCard key={index} testimonials={testimonial}/>))}
+        {getloading ? Array.from({ length: 3 }).map((_, index) => <SkeletonCard key={index}/>) : allTestimonial.map((testimonial, index) => (<TestimonialCard key={index} testimonials={testimonial}/>))}
       </div>
     </div>
   )
