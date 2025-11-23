@@ -2,7 +2,7 @@
 import {RecentWorkHandles} from "../Store/RecentWorkZus"  
 import { useEffect } from "react";
 import RworkCard from '@/components/RworkCard'
-
+import RworkCardSkeleton from '@/loaders/RworkCardSkeleton'
 const RecentWorks = () => {
   const {allRecentWork, getloading, onGet} = RecentWorkHandles()
   useEffect(() => {onGet()}, [])
@@ -20,7 +20,7 @@ const RecentWorks = () => {
         <div className="block md:flex flex-wrap items-center justify-start w-full">
         {/* card */}
         {getloading
-          ? "loading "
+          ? Array.from({length: 6}).map((_, index) => <RworkCardSkeleton key={index}/>)
           : allRecentWork.map((work, index) => (
             <RworkCard data={work} key={index}/>
           ))}
