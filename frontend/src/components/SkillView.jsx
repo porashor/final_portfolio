@@ -1,7 +1,8 @@
 'use client'
-import SkillCard from "@/components/SkillCard";
+import { useEffect, Suspense, lazy } from "react";
+const SkillCard = lazy(() => import("@/components/SkillCard"));
 import { upSkill } from "@/Store/Zustand";
-import { useEffect } from "react";
+import SkillSkeleton from "../loaders/SkillSkeleton";
 export default function SkillView() {
   const {getloading, onGet, allSkill} = upSkill();
   useEffect(() => {onGet()}, [])
@@ -37,10 +38,12 @@ export default function SkillView() {
           </h1>
           <div className="w-[95%] lg:w-[85%] mx-auto">
             <div className="py-5 lg:py-10 block md:flex flex-wrap gap-5 w-fit md:w-full mx-auto items-center justify-start">
-            {Array.isArray(data) && data
+            { getloading ? Array.from({length: 3}).map((_, index) => <SkillSkeleton key={index}/>)  : Array.isArray(data) && data
               .filter((a) => a.state === item)
               .map((skill, index) => (
-                <SkillCard key={index} skill={skill} />
+                <Suspense key={index} fallback={<SkillSkeleton/>}>
+                  <SkillCard  skill={skill} />
+                </Suspense>
               ))}
           </div>
           </div>

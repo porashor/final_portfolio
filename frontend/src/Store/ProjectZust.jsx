@@ -63,7 +63,7 @@ export const projectHandle = create((set) => ({
             set({ allproject: appdata });
           }
     },
-    getloading : false,
+    getloading : true,
     onGetProject : async () => {
         set({getloading: true});
       try {

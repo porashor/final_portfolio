@@ -49,7 +49,7 @@ export const upSkill = create((set) => ({
     }
   },
 
-  getloading: false,
+  getloading: true,
   onGet: async () => {
     set({ getloading: true });
     try {
