@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono, Montserrat_Alternates } from "next/font/google";
 import MobileNav from "@/components/MobileNav";
 import Nav from "@/components/Nav";
+import ScrollToTopButton from "@/components/ScrollTop";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
@@ -41,6 +42,7 @@ export default function RootLayout({ children }) {
           {children}
           <ToastContainer position="top-right" autoClose={3000} />
         </div>
+        <ScrollToTopButton />
       </body>
     </html>
   );
