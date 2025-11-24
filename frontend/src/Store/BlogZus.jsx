@@ -39,7 +39,7 @@ export const blogHandle = create((set) => ({
             set({ allBlog: appdata });
         } 
     },
-    getloading: false,
+    getloading: true,
     onGet: async () => {
         set({ getloading: true });
         try {
