@@ -1,6 +1,6 @@
 'use client'
-import { useEffect, Suspense, lazy } from "react";
-const SkillCard = lazy(() => import("@/components/SkillCard"));
+import { useEffect, lazy } from "react";
+import SkillCard from "./SkillCard";
 import { upSkill } from "@/Store/Zustand";
 import SkillSkeleton from "../loaders/SkillSkeleton";
 export default function SkillView() {
@@ -41,9 +41,7 @@ export default function SkillView() {
             { getloading ? Array.from({length: 3}).map((_, index) => <SkillSkeleton key={index}/>)  : Array.isArray(data) && data
               .filter((a) => a.state === item)
               .map((skill, index) => (
-                <Suspense key={index} fallback={<SkillSkeleton/>}>
-                  <SkillCard  skill={skill} />
-                </Suspense>
+                <SkillCard  skill={skill} key={index}/>
               ))}
           </div>
           </div>

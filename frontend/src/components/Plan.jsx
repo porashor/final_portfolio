@@ -11,7 +11,6 @@ const Plan = async () => {
   }finally{
     loader = false
   }
-  console.log(loader)
   return (
     <div className='py-5 lg:py-10 bg-[#eeeeee] '>
           {/* frontend  */}

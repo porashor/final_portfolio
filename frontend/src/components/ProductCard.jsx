@@ -12,7 +12,7 @@ const ProductCard = ({ plan }) => {
       </div>
       <div className="px-4 flex flex-col gap-2 py-2">
         <div className="flex gap-1 items-center justify-between font-bold uppercase tracking-[-1px]">
-          <p className="w-fit">{plan.name}</p>
+          <p className="w-fit line-clamp-1">{plan.name}</p>
           <p className="flex items-center">
             {plan.price}
             <FaBangladeshiTakaSign />
