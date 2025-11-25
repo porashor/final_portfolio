@@ -5,7 +5,6 @@ import Testimonial from "@/components/Testimonial"
 import RecentWorks from "@/components/RecentWorks"
 import BuildOwn from "@/components/BuildOwn"
 import Journy from "@/components/Journy"
-import Journyflow from "@/components/Journyflow"
 const Home = () => {
   return (
     <div className='w-full '>
@@ -14,7 +13,6 @@ const Home = () => {
       <Testimonial/>
       <RecentWorks/>
       <Journy/>
-      <Journyflow/>
       <Foother/>
     </div>
   )

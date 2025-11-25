@@ -1,5 +1,5 @@
 'use client'
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { FaChevronRight } from 'react-icons/fa'
 import { FaHome } from "react-icons/fa";
 import logo from '@/image/Parashar_logo.png'
@@ -12,49 +12,88 @@ import { FaBlog } from "react-icons/fa6";
 import { MdContactPhone } from "react-icons/md";
 import { HiMiniShoppingCart } from "react-icons/hi2";
 import Link from 'next/link';
-
+import { usePathname } from "next/navigation";
 
 
 const Nav = () => {
+  const path = usePathname();
   const [isOpen, setIsOpen] = useState(true);
-  const [auto, setAuto] = useState(false);
-  const handle = () =>{
-    setTimeout(() => {
-      setAuto(false)
-    }, 3000)
-  }
+  const navItems = [
+    { href: "/", label: "Home", icon: <FaHome /> },
+    { href: "/about", label: "About", icon: <FcAbout /> },
+    { href: "/skill", label: "Skills", icon: <GiSkills /> },
+    { href: "/project", label: "Projects", icon: <GrProjects /> },
+    { href: "/blog", label: "Blogs", icon: <FaBlog /> },
+    { href: "/plan", label: "Plans", icon: <HiMiniShoppingCart /> },
+    { href: "/contact", label: "Contact", icon: <MdContactPhone /> },
+  ];
   return (
-    <div className={`${isOpen ? 'w-[50px] lg:w-[65px]' : ' w-[200px] lg:w-[280px]'} hidden transition-all ease-in-out duration-600  sticky top-0 left-0 h-screen bg-light md:flex flex-col items-center`}>
-      <Link href="/" className='flex items-center gap-1 w-full py-5'> <span className='flex-center rounded w-[50px] lg:w-[60px] aspect-square'>
-        <Image src={logo} alt="My profile picture" className="object-cover w-full h-full"/>
-        </span> <span className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? 'opacity-0 scale-0 w-0' : 'opacity-100 scale-100 w-auto'} text-xs lg:text-lg logo-light font-semibold `}>Parashar Das</span></Link>
+    <div
+      onMouseEnter={() => setIsOpen(false)}
+      onMouseLeave={() => setIsOpen(true)}
+      className={`${isOpen ? "w-[50px] lg:w-[65px]" : " w-[200px] lg:w-[280px]"
+        } hidden transition-all ease-in-out duration-600  sticky top-0 left-0 h-screen bg-light md:flex flex-col items-center`}
+    >
+      <Link href="/" className="flex items-center gap-1 w-full py-5">
+        {" "}
+        <span className="flex-center rounded w-[50px] lg:w-[60px] aspect-square">
+          <Image
+            src={logo}
+            alt="My profile picture"
+            className="object-cover w-full h-full"
+          />
+        </span>{" "}
+        <span
+          className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? "opacity-0 scale-0 w-0" : "opacity-100 scale-100 w-auto"
+            } text-xs lg:text-lg logo-light font-semibold `}
+        >
+          Parashar Das
+        </span>
+      </Link>
 
       {/* nav areas here  */}
-      <nav className='py-2 px-2 md:px-3 text-xl w-full z-10'>
+      <nav className="py-2 px-2 md:px-3 text-xl w-full z-10">
         <ul>
-          <li className='w-full flex flex-col gap-2 lg:gap-3'>
-            <Link href="/" className='group flex items-center gap-2 focus:bg-black/20 p-1 rounded-xl '> <span className='flex-center bg-dark p-1 md:p-2 rounded group-focus:bg-[#715A5A]'><FaHome/></span> <span className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? 'opacity-0 w-0 scale-0' : 'opacity-100 scale-100 w-auto'} `}>Home</span></Link>
-            <Link href="/about" className='group flex items-center gap-2 focus:bg-black/20 p-1  rounded-xl'> <span className='flex-center bg-dark p-1 md:p-2 rounded group-focus:bg-[#715A5A]'><FcAbout/></span> <span className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? 'opacity-0 w-0 scale-0' : 'opacity-100 scale-100 w-auto'} `}>About</span></Link>
-            <Link href="/skill" className='group flex items-center gap-2 focus:bg-black/20 p-1  rounded-xl'> <span className='flex-center bg-dark p-1 md:p-2 rounded group-focus:bg-[#715A5A]'><GiSkills/></span> <span className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? 'opacity-0 w-0 scale-0' : 'opacity-100 scale-100 w-auto'} `}>Skills</span></Link>
-            <Link href="/project" className='group flex items-center gap-2 focus:bg-black/20 p-1  rounded-xl'> <span className='flex-center bg-dark p-1 md:p-2 rounded group-focus:bg-[#715A5A]'><GrProjects/></span> <span className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? 'opacity-0 w-0 scale-0' : 'opacity-100 scale-100 w-auto'} `}>Projects</span></Link>
-            <Link href="/blog" className='group flex items-center gap-2 focus:bg-black/20 p-1  rounded-xl'> <span className='flex-center bg-dark p-1 md:p-2 rounded group-focus:bg-[#715A5A]'><FaBlog/></span> <span className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? 'opacity-0 w-0 scale-0' : 'opacity-100 scale-100 w-auto'} `}>Blogs</span></Link>
-            <Link href="/plan" className='group flex items-center gap-2 focus:bg-black/20 p-1  rounded-xl'> <span className='flex-center bg-dark p-1 md:p-2 rounded group-focus:bg-[#715A5A]'><HiMiniShoppingCart/></span> <span className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? 'opacity-0 w-0 scale-0' : 'opacity-100 scale-100 w-auto'} `}>Plans</span></Link>
-            <Link href="/contact" className='group flex items-center gap-2 focus:bg-black/20 p-1  rounded-xl'> <span className='flex-center bg-dark p-1 md:p-2 rounded group-focus:bg-[#715A5A]'><MdContactPhone/></span> <span className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? 'opacity-0 w-0 scale-0' : 'opacity-100 scale-100 w-auto'} `}>Contact</span></Link>
+          <li className="w-full flex flex-col gap-2 lg:gap-3">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className=" flex items-center gap-2 p-1 rounded-xl"
+              >
+                <span className={`flex-center bg-dark p-1 md:p-2 rounded ${path === item.href ? 'bg-[#715A5A]' : ''}`}>
+                  {item.icon}
+                </span>
+                <span
+                  className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen
+                      ? "opacity-0 w-0 scale-0"
+                      : "opacity-100 scale-100 w-auto"
+                    }`}
+                >
+                  {item.label}
+                </span>
+              </Link>
+            ))}
           </li>
         </ul>
       </nav>
-
-
-      {/* trac btn  */}
-      <button onMouseEnter={()=>setAuto(true)} onMouseOut={handle}  className={`${auto? `${!isOpen ? 'right-[-25px]' : 'right-[-25px]'}` : `${!isOpen ? "right-[-8px]" : "right-[-8px]"}`} transition-all ease-in-out duration-600 absolute top-[50%]  py-5 px-2 bg-light z-0`}>
-        <FaChevronRight className={`text-xl ${isOpen ? '' :'rotate-180' }`} onClick={()=>setIsOpen((p)=>!p)}/>
-      </button>
-      {/* download resume btn  */}
-      <a href='/parashardas.pdf' download className='flex items-center gap-1 w-full py-5 px-3 absolute bottom-0 right-0 left-0'> <span className='flex-center bg-dark p-1 md:p-2 rounded'>
-        <FaDownload/>
-        </span> <span className={` ${isOpen ? 'hidden' : 'block'} text-xl`}>Resume</span></a>
+      <a
+        href="/parashardas.pdf"
+        download
+        className="flex items-center gap-1 w-full py-5 px-3 absolute bottom-0 right-0 left-0"
+      >
+        {" "}
+        <span className="flex-center bg-dark p-1 md:p-2 rounded">
+          <FaDownload />
+        </span>{" "}
+        <span className={` ${isOpen ? "hidden" : "block"} text-xl`}>
+          Resume
+        </span>
+      </a>
     </div>
-  )
+  );
 }
 
 export default Nav
+
+
