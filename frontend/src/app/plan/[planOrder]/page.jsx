@@ -1,18 +1,24 @@
 import React from 'react'
 import Image from 'next/image'
+import { TfiReload } from "react-icons/tfi";
+import Link from 'next/link';
+import OrderComponent from '../../../components/OrderComponent';
 const page = async({params}) => {
     let data
+    let loader = true
     try {
         const {planOrder} = await params
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/plan/${planOrder}`)
         data = await response.json()
     } catch (error) {
         console.log(error)
+    }finally{
+        loader = false
     }
     console.log(data)
     const features = data.features ? JSON.parse(data.features[0]) : [];
   return (
-    data.name ? 
+    loader ? <div className='w-full h-full flex items-center justify-center'><TfiReload className='animate-spin' size={40} /></div> : <div>{data.name ? 
     <div className='w-[90%] mx-auto py-5 md:py-10 space-y-5'>
         <div className='relative w-full md:w-[70%] h-[400px] md:h-[600px] mx-auto'>
             <Image fill alt="img" src={data.image} className="object-cover" />
@@ -36,9 +42,10 @@ const page = async({params}) => {
                 <h1 className='text-xl lg:text-2xl font-bold'>Total price</h1>
                 <p className='text-xl'>{data.price} taka</p>
             </div>
+            <OrderComponent data={data}/>
         </div>
     </div> 
-    : <div>no data</div>
+    : <div>no data</div>}</div>
   )
 }
 

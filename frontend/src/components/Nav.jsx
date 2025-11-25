@@ -34,20 +34,20 @@ const Nav = () => {
       className={`${isOpen ? "w-[50px] lg:w-[65px]" : " w-[200px] lg:w-[280px]"
         } hidden transition-all ease-in-out duration-600  sticky top-0 left-0 h-screen bg-light md:flex flex-col items-center`}
     >
-      <Link href="/" className="flex items-center gap-1 w-full py-5">
-        {" "}
-        <span className="flex-center rounded w-[50px] lg:w-[60px] aspect-square">
+      <Link href="/" className="flex items-center gap-1 w-fit py-5 justify-between">
+        <span className="relative flex items-center justify-center  rounded w-[50px] lg:w-[60px] aspect-square scale-100">
           <Image
             src={logo}
             alt="My profile picture"
-            className="object-cover w-full h-full"
+            className="object-cover"
+            fill
           />
-        </span>{" "}
+        </span>
         <span
-          className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen ? "opacity-0 scale-0 w-0" : "opacity-100 scale-100 w-auto"
+          className={`transition-all ease-in-out duration-2000 ${isOpen ? "opacity-0 w-0 scale-0" : "opacity-100 w-fit scale-100 "
             } text-xs lg:text-lg logo-light font-semibold `}
         >
-          Parashar Das
+          Parashar D.
         </span>
       </Link>
 
@@ -59,13 +59,13 @@ const Nav = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className=" flex items-center gap-2 p-1 rounded-xl"
+                className=" flex items-center gap-2 p-1 group rounded-xl hover:bg-slate-400"
               >
                 <span className={`flex-center bg-dark p-1 md:p-2 rounded ${path === item.href ? 'bg-[#715A5A]' : ''}`}>
                   {item.icon}
                 </span>
                 <span
-                  className={`transition-all ease-in-out duration-1200 overflow-hidden ${isOpen
+                  className={`group-hover:text-white transition-all ease-in-out duration-900 overflow-hidden ${isOpen
                       ? "opacity-0 w-0 scale-0"
                       : "opacity-100 scale-100 w-auto"
                     }`}
