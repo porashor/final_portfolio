@@ -8,8 +8,13 @@ import blogRoute from './route/blogRoute.js'
 import consultantRoute from './route/consultantRoute.js'
 import RecentworkRouter from './route/RecentworkRouter.js'
 import planRoute from './route/planRoute.js'
+import authRoute from './route/authRoute.js'
+import cookieParser from 'cookie-parser'
+import orderRoute from './route/orderRoute.js'
+
 import cors from 'cors'
 const app = express()
+app.use(cookieParser());
 dotenv.config()
 app.use(cors({
     origin: ['http://localhost:3000', "https://portfolio-cdhx.onrender.com", "https://parashardaspro.netlify.app"],
@@ -33,6 +38,8 @@ app.use('/blog', blogRoute)
 app.use('/consultant', consultantRoute)
 app.use('/recentwork', RecentworkRouter)
 app.use('/plan', planRoute)
+app.use('/auth', authRoute)
+app.use('/order', orderRoute)
 
 
 app.listen(port, () => {

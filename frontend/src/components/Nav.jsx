@@ -44,7 +44,7 @@ const Nav = () => {
           />
         </span>
         <span
-          className={`transition-all ease-in-out duration-2000 ${isOpen ? "opacity-0 w-0 scale-0" : "opacity-100 w-fit scale-100 "
+          className={` ${isOpen ? " scale-0 w-0 opacity-0 " : "opacity-100  w-fit scale-100 transition-all ease-in duration-1000"
             } text-xs lg:text-lg logo-light font-semibold `}
         >
           Parashar D.
@@ -80,13 +80,16 @@ const Nav = () => {
       <a
         href="/parashardas.pdf"
         download
-        className="flex items-center gap-1 w-full py-5 px-3 absolute bottom-0 right-0 left-0"
+        className="flex items-center gap-1 w-full py-5 px-3 absolute bottom-0 right-0 left-0 group hover:bg-slate-400"
       >
         {" "}
         <span className="flex-center bg-dark p-1 md:p-2 rounded">
           <FaDownload />
         </span>{" "}
-        <span className={` ${isOpen ? "hidden" : "block"} text-xl`}>
+        <span className={`group-hover:text-white transition-all ease-in-out duration-900 overflow-hidden ${isOpen
+                      ? "opacity-0 w-0 scale-0"
+                      : "opacity-100 scale-100 w-auto"
+                    }`}>
           Resume
         </span>
       </a>

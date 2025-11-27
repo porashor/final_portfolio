@@ -15,7 +15,6 @@ const page = async({params}) => {
     }finally{
         loader = false
     }
-    console.log(data)
     const features = data.features ? JSON.parse(data.features[0]) : [];
   return (
     loader ? <div className='w-full h-full flex items-center justify-center'><TfiReload className='animate-spin' size={40} /></div> : <div>{data.name ? 
