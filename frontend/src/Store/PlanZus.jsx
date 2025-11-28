@@ -43,6 +43,7 @@ export const PlanHandle = create((set) => ({
             const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/plan`);
             const appdata = await res.json();
             set({ allPlan: appdata });
+            set({ pName: "", price: 0, description: "", image : '', features: '', duration: '' });
         }
     },
     getloading: false,
@@ -77,5 +78,16 @@ export const PlanHandle = create((set) => ({
             const appdata = await res.json();
             set({ allPlan: appdata });
         }
-    }
+    },
+    spcPlan: {},
+    spcGet: async (id) => {
+        try {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/plan/${id}`);
+            const appdata = await res.json();
+            set({ spcPlan: appdata });
+            return appdata;
+        } catch (error) {
+            console.error("Upload error:", error);
+        }
+    },
 }))

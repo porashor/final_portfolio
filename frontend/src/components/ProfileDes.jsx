@@ -1,15 +1,8 @@
 'use client'
-import { useEffect } from "react"
-import userHandle from "../Store/UserZust"
-import Image from "next/image"
-const ProfileDes = () => {
-    const {user, getUser, getLoading} = userHandle()
 
-    useEffect(() => {
-        getUser()
-    }, [])
-    console.log(user)
-    const profile = user
+import Image from "next/image"
+const ProfileDes = ({getLoading, profile}) => {
+    
   return (
     getLoading ? "loading" : <div className="w-full h-fit border p-4 rounded-lg ">
       <div className=" flex flex-col gap-4">
@@ -38,13 +31,3 @@ export default ProfileDes
 
 
 
-// try {
-//         const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/auth', {
-//             method: 'GET',
-//             credentials: 'include'
-//         })
-//         const appdata = await res.json()
-//         console.log(appdata)
-//     } catch (error) {
-//         console.log(error)
-//     }

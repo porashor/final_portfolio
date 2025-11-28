@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { FaChevronRight } from 'react-icons/fa'
 import { FaHome } from "react-icons/fa";
 import logo from '@/image/Parashar_logo.png'
@@ -11,13 +11,19 @@ import { GrProjects } from "react-icons/gr";
 import { FaBlog } from "react-icons/fa6";
 import { MdContactPhone } from "react-icons/md";
 import { HiMiniShoppingCart } from "react-icons/hi2";
+import { FaUserTimes } from "react-icons/fa";
+import { FaUserCheck } from "react-icons/fa6";
 import Link from 'next/link';
 import { usePathname } from "next/navigation";
-
+import userHandle from '../Store/UserZust';
 
 const Nav = () => {
   const path = usePathname();
   const [isOpen, setIsOpen] = useState(true);
+  const {getUser, user} = userHandle();
+  useEffect(() => {
+    getUser();
+  }, []);
   const navItems = [
     { href: "/", label: "Home", icon: <FaHome /> },
     { href: "/about", label: "About", icon: <FcAbout /> },
@@ -26,7 +32,10 @@ const Nav = () => {
     { href: "/blog", label: "Blogs", icon: <FaBlog /> },
     { href: "/plan", label: "Plans", icon: <HiMiniShoppingCart /> },
     { href: "/contact", label: "Contact", icon: <MdContactPhone /> },
+    { href: "/user", label: "User", icon: <FaUserTimes /> },
+    { href: "/deshboard", label: "Deshboard", icon: <FaUserCheck /> },
   ];
+  const navAll = user && user._id ? navItems.filter(item => item.href !== '/user'): navItems.filter(item => item.href !== '/deshboard');
   return (
     <div
       onMouseEnter={() => setIsOpen(false)}
@@ -55,7 +64,7 @@ const Nav = () => {
       <nav className="py-2 px-2 md:px-3 text-xl w-full z-10">
         <ul>
           <li className="w-full flex flex-col gap-2 lg:gap-3">
-            {navItems.map((item) => (
+            {navAll.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}

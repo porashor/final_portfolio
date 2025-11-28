@@ -56,7 +56,27 @@ const orderHandle = create((set)=>({
         } catch (error) {
             toast.error('Failed to place order')
         }finally{
-            set({loading: false})
+            set({loading: false, clientText: '', clientFiles: null})
+        }
+    },
+    delLoading: false,
+    delOrder: async (id) => {
+        set({delLoading: true})
+        try {
+            await fetch(process.env.NEXT_PUBLIC_API_URL + `/order/${id}`, {
+                method: 'DELETE',
+            })
+            toast.success('Order deleted successfully')
+        } catch (error) {
+            toast.error('Failed to delete order')
+        }finally{
+            set({delLoading: false})
+            const appdata = await fetch(process.env.NEXT_PUBLIC_API_URL + '/order', {
+                method: 'GET',
+                credentials: 'include'
+            })
+            const orders = await appdata.json()
+            set({orders})
         }
     }
 }))

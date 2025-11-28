@@ -2,6 +2,7 @@ import express from 'express'
 import Order from '../schema/orderSchema.js'
 import upload from '../multer/multer.js'
 import cloudinary from '../cloudnary/cloudnary.js'
+import { protectedRoute } from '../middelware/protectRoute.js'
 
 const router = express.Router()
 
@@ -15,9 +16,10 @@ router.get('/:id', async (req, res)=>{
         console.log(error)
     }
 })
-router.get('/', async (req, res)=>{
+router.get('/', protectedRoute, async (req, res)=>{
+    const id = req.id
     try {
-        const result = await Order.find()
+        const result = await Order.find({clientID: id})
         res.send(result)
     } catch (error) {
         console.log(error)
@@ -49,7 +51,7 @@ router.post('/', upload.single('clientFiles'), async (req, res)=>{
 router.delete('/:id', async(req, res)=>{
     try {
         const result = await Order.findByIdAndDelete({_id: req.params.id})
-        res.send("successfully deleted")
+        res.send({msg: "successfully deleted"})
     } catch (error) {
         console.log(error)
     }
