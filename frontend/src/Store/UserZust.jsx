@@ -36,9 +36,12 @@ const userHandle = create((set)=>({
         }
     },
     profileLoading: false,
-    updatepicProfile: async (id, formData) => {
+    updatepicProfile: async (e, id, imgData) => {
+        e.preventDefault()
         set({profileLoading: true})
         try {
+            const formData = new FormData()
+            formData.append('image', imgData)
             const res = await fetch(process.env.NEXT_PUBLIC_API_URL + `/auth/${id}`, {
                 method: 'PUT',
                 body: formData,
@@ -46,9 +49,16 @@ const userHandle = create((set)=>({
             const appdata = await res.json()
             toast.success('Profile updated successfully')
         } catch (error) {
+            console.log(error)
             toast.error('Profile update failed')
         }finally{
             set({profileLoading: false})
+            const thisuser = await fetch(process.env.NEXT_PUBLIC_API_URL + '/auth', {
+                method: 'GET',
+                credentials: 'include'
+            })
+            const userdata = await thisuser.json()
+            set({user: userdata})
         }
     },
     logIn: async (e, email, password) => {
