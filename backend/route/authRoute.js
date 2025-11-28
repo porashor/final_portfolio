@@ -48,7 +48,7 @@ router.post('/', async (req, res)=>{
                 img : image
             })
             const token = jwt.sign({id:user._id}, keys)
-            res.cookie('token', token, {httpOnly:true, secure:true, sameSite:'strict'})
+            res.cookie('token', token, {httpOnly:true, secure:true, sameSite:'none'})
             res.send("sign in successfully")
         }
     }catch(err){
@@ -71,7 +71,7 @@ router.post('/login', async (req, res)=>{
             return res.status(400).json({message: "Invalid credentials"})
         }
         const token = jwt.sign({id:user._id}, keys)
-        res.cookie('token', token, {httpOnly:true, secure:true, sameSite:'strict'})
+        res.cookie('token', token, {httpOnly:true, secure:true, sameSite:'none'})
         res.status(200).json("login successfully")
     } catch (error) {
         console.log(error)
