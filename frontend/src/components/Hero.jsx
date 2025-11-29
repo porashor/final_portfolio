@@ -25,6 +25,7 @@ const Hero = () => {
           <Image
           src={img}
           priority
+          fetchPriority="high"
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
           alt="My profile picture"
