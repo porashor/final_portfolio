@@ -86,3 +86,27 @@ export const upSkill = create((set) => ({
     }
   }
 }));
+
+
+import { FaHome } from "react-icons/fa";
+import { FcAbout } from "react-icons/fc";
+import { GiSkills } from "react-icons/gi";
+import { GrProjects } from "react-icons/gr";
+import { FaBlog } from "react-icons/fa6";
+import { MdContactPhone } from "react-icons/md";
+import { HiMiniShoppingCart } from "react-icons/hi2";
+import { FaUserTimes } from "react-icons/fa";
+import { FaUserCheck } from "react-icons/fa6";
+
+
+export const navItems = [
+  { href: "/", label: "Home", icon: <FaHome /> },
+  { href: "/about", label: "About", icon: <FcAbout /> },
+  { href: "/skill", label: "Skills", icon: <GiSkills /> },
+  { href: "/project", label: "Projects", icon: <GrProjects /> },
+  { href: "/blog", label: "Blogs", icon: <FaBlog /> },
+  { href: "/plan", label: "Plans", icon: <HiMiniShoppingCart /> },
+  { href: "/contact", label: "Contact", icon: <MdContactPhone /> },
+  { href: "/user", label: "User", icon: <FaUserTimes /> },
+  { href: "/deshboard", label: "Deshboard", icon: <FaUserCheck /> },
+];
