@@ -61,7 +61,7 @@ const Nav = () => {
                 className=" flex items-center gap-2 p-1 group rounded-xl hover:bg-slate-400"
               >
                 <span
-                  className={`flex-center bg-dark p-1 md:p-2 rounded ${
+                  className={`flex-center bg-dark p-1 md:p-2 rounded focus:bg-[#715A5A] ${
                     path === item.href ? "bg-[#715A5A]" : ""
                   }`}
                 >

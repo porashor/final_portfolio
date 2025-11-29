@@ -2,7 +2,7 @@
 import userHandle from "@/Store/UserZust"
 import Image from "next/image"
 const ProfileDes = ({getLoading, profile}) => {
-    const {updatepicProfile, profileLoading, image, onImage} = userHandle()
+    const {updatepicProfile, profileLoading, image, onImage, signOut, signoutloading} = userHandle()
   return (
     getLoading ? "loading" : <div className="w-full h-fit border p-4 rounded-lg ">
       <div className=" flex flex-col gap-4">
@@ -24,6 +24,7 @@ const ProfileDes = ({getLoading, profile}) => {
         <div>
           <input type="file" required  onChange={(e)=>onImage(e.target.files[0])}/>
           <button onClick={(e)=>updatepicProfile(e, profile._id, image)} className="bg-green-300 w-full py-2 rounded-xl mt-3">{profileLoading? "loading...": "update profile pic"}</button>
+          <button onClick={(e)=>signOut()} className="bg-red-300 w-full py-2 rounded-xl mt-3">{signoutloading? "loading...": "Sign Out"}</button>
         </div>
       </div>
     </div>

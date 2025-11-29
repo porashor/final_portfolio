@@ -90,6 +90,16 @@ router.put('/:id', upload.single('image'), async (req, res)=>{
 })
 
 
+router.delete('/', protectedRoute, async (req, res)=>{
+    try {
+        res.clearCookie('token', {httpOnly:true, secure:true, sameSite:'none'})
+        res.status(200).json("logout successfully")
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+
 
 
 export default router

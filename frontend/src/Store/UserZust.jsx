@@ -1,5 +1,6 @@
 import {create} from 'zustand'
 import {toast} from 'react-toastify'
+import { sign } from 'crypto'
 
 
 
@@ -28,6 +29,7 @@ const userHandle = create((set)=>({
                 credentials: 'include'
             })
             const appdata = await res.json()
+            window.location.href = "/";   
             toast.success('Sign in successful')
         } catch (error) {
             toast.error('Sign in failed')
@@ -75,6 +77,7 @@ const userHandle = create((set)=>({
                 credentials: 'include'
             })
             const appdata = await res.json()
+            window.location.href = "/";   
             toast.success('Log in successful')
         } catch (error) {
             console.log(error)
@@ -98,6 +101,25 @@ const userHandle = create((set)=>({
             console.log(error)
         }finally{
             set({getLoading: false})
+        }
+    },
+    signoutloading: false,
+    signOut: async () => {
+        set({signoutloading: true})
+        try {
+            const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/auth', {
+                method: 'DELETE',
+                credentials: 'include'
+            })
+            const appdata = await res.json()
+            window.location.href = "/";   
+            toast.success('Sign out successful')
+        }
+            catch (error) {
+            console.log(error)
+            toast.error('Sign out failed')
+        }finally{
+            set({signoutloading: false})
         }
     }
 }))
