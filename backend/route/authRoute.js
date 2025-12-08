@@ -63,16 +63,16 @@ router.post('/login', async (req, res)=>{
         const user = await Auth.findOne({email})
         
         if(!user){
-            return res.status(400).json({message: "User not found"})
+            return res.status(400).json({message: "User not found", access: false} )
         }
         const isMatch = await bcrypt.compare(password, user.password)
         
         if(!isMatch){
-            return res.status(400).json({message: "Invalid credentials"})
+            return res.status(400).json({message: "Invalid credentials", access: false} )
         }
         const token = jwt.sign({id:user._id}, keys)
         res.cookie('token', token, {httpOnly:true, secure:true, sameSite:'none'})
-        res.status(200).json("login successfully")
+        res.status(200).json({message: "Login success", access: true})
     } catch (error) {
         console.log(error)
     }

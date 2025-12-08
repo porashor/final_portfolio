@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react'
 import { PlanHandle } from '../Store/PlanZus'
 import orderHandle from '../Store/orderZust'
 import Payment from './Payment'
+import StripPay from './StripPay'
 const OderProcess = ({productIDs, profile}) => {
     const {allPlan, onGet} = PlanHandle()
     const {delLoading, delOrder} = orderHandle()
@@ -30,6 +31,7 @@ const OderProcess = ({productIDs, profile}) => {
                         </div> 
                     }
                 </div>
+                {/* <StripPay/> */}
             </div>: <div>No product selected</div>}
         </div>
     </div>

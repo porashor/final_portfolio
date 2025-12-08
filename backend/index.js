@@ -11,7 +11,7 @@ import planRoute from './route/planRoute.js'
 import authRoute from './route/authRoute.js'
 import cookieParser from 'cookie-parser'
 import orderRoute from './route/orderRoute.js'
-
+import paymentRoute from './route/paymentRoute.js'
 import cors from 'cors'
 const app = express()
 app.use(cookieParser());
@@ -40,6 +40,7 @@ app.use('/recentwork', RecentworkRouter)
 app.use('/plan', planRoute)
 app.use('/auth', authRoute)
 app.use('/order', orderRoute)
+app.use('/pay', paymentRoute)
 
 
 app.listen(port, () => {

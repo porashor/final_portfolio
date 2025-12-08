@@ -77,8 +77,12 @@ const userHandle = create((set)=>({
                 credentials: 'include'
             })
             const appdata = await res.json()
-            window.location.href = "/";   
-            toast.success('Log in successful')
+            if(!appdata.access){
+                toast.error(appdata.message)
+            }else{
+                window.location.href = "/";   
+                toast.success('Log in successful')
+            }
         } catch (error) {
             console.log(error)
             toast.error('Log in failed')
