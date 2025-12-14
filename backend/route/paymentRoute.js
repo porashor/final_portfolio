@@ -11,14 +11,18 @@ router.get('/', (req, res) => {
 
 
 router.post('/', async (req, res) => {
+  console.log("Payment request received:", req.body);
   try {
-    const { amount } = req.body;
+    const { amount, currency } = req.body;
     const paymentIntent = await stripe.paymentIntents.create({
-        amount,
-      currency: 'bdt',
+      amount,
+      currency: currency || 'usd',
       automatic_payment_methods: { enabled: true },
     });
-    res.status(200).send({ clientSecret: paymentIntent.client_secret });
+    // const { error, paymentIntent } = await stripe.paymentIntents.confirm(paymentIntent.id);
+    // console.log("PaymentIntent created:", paymentIntent);
+    // console.log("PaymentIntent confirmed:", cnfm);
+    res.status(200).send({ clientSecret: paymentIntent.client_secret, data : paymentIntent.id });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
