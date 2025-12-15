@@ -20,7 +20,7 @@ const OderProcess = ({ productIDs, profile }) => {
   const onToken = async () => {
     const res = await payOver(planDetails.price, currency);
     if (res) {
-      router.push(`/deshboard/${productIDs._id}`)
+      router.push(`/deshboard/${String(productIDs._id)}`)
     }
   };
   return (
