@@ -1,13 +1,11 @@
 'use client'
 import { CardNumberElement, CardExpiryElement, CardCvcElement, useStripe, useElements } from "@stripe/react-stripe-js"
-import { payhandle } from "../Store/Payzust"
 import { useRouter } from "next/navigation"
 import orderHandle from "../Store/orderZust"
 
-const DepositForm = ({id}) => {
+const DepositForm = ({id, confirmDeposit, clientSecret}) => {
     const stripes = useStripe()
     const elements = useElements()
-    const {confirmDeposit, clientSecret} = payhandle()
     const router = useRouter()
     console.log(router)
     const {updateStatus} = orderHandle()
