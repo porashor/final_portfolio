@@ -13,7 +13,7 @@ const page = () => {
   return (
     <div className="w-full h-screen flex items-center justify-center">
       {/* main form */}
-      <Elements stripe={stripe} options={{clientSecret}}>
+      <Elements stripe={stripe} options={{clientSecret, appearance: { theme: "stripe" }}}>
         <DepositForm id={id} confirmDeposit={confirmDeposit} clientSecret={clientSecret}/>
       </Elements>
     </div>
