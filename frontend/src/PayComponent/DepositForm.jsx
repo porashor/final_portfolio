@@ -2,17 +2,22 @@
 import { CardNumberElement, CardExpiryElement, CardCvcElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import { payhandle } from "../Store/Payzust"
 import { useRouter } from "next/navigation"
-const DepositForm = () => {
+import orderHandle from "../Store/orderZust"
+
+const DepositForm = ({id}) => {
     const stripes = useStripe()
     const elements = useElements()
     const {confirmDeposit, clientSecret} = payhandle()
     const router = useRouter()
+    console.log(router)
+    const {updateStatus} = orderHandle()
     const handle = (e)=>{
         e.preventDefault()
         const cardDetails = elements.getElement(CardNumberElement)
         const ok = confirmDeposit(stripes, cardDetails, clientSecret)
         if(ok){
-            router.push("/deshboard/success")
+          updateStatus(id, "success")
+          router.push("/deshboard/success")
         }
     }
   return (

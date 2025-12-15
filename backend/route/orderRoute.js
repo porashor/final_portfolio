@@ -46,6 +46,16 @@ router.post('/', upload.single('clientFiles'), async (req, res)=>{
     }
 })
 
+router.put('/:id', async(req, res)=>{
+    const {payStatus} = req.body
+    try {
+        const result = await Order.findByIdAndUpdate({_id: req.params.id}, {payStatus})
+        res.send({msg: "successfully updated", result})
+    } catch (error) {
+        console.log(error)
+    }
+})
+
 
 
 router.delete('/:id', async(req, res)=>{

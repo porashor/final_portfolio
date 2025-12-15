@@ -78,6 +78,29 @@ const orderHandle = create((set)=>({
             const orders = await appdata.json()
             set({orders})
         }
+    },
+    updateStatus: async (id, payStatus) => {
+        set({loading: true})
+        try {
+            await fetch(process.env.NEXT_PUBLIC_API_URL + `/order/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({payStatus})
+            })
+            toast.success('Order status updated successfully')
+        } catch (error) {
+            toast.error('Failed to update order status')
+        }finally{
+            set({loading: false})
+            const appdata = await fetch(process.env.NEXT_PUBLIC_API_URL + '/order', {
+                method: 'GET',
+                credentials: 'include'
+            })
+            const orders = await appdata.json()
+            set({orders})
+        }
     }
 }))
 
