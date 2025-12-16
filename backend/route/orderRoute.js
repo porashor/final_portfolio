@@ -3,6 +3,7 @@ import Order from '../schema/orderSchema.js'
 import upload from '../multer/multer.js'
 import cloudinary from '../cloudnary/cloudnary.js'
 import { protectedRoute } from '../middelware/protectRoute.js'
+import { sendMessage } from '../utilities/sendMessage.js'
 
 const router = express.Router()
 
@@ -40,6 +41,7 @@ router.post('/', upload.single('clientFiles'), async (req, res)=>{
         const result = await Order.create({
             name, email, phone, price, productID, clientID, payStatus, clientText, clientFiles: imgsend.secure_url
         })
+        await sendMessage(`New Order Received!\n\nClient Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nPrice: ${price}\nProduct ID: ${productID}\nClient ID: ${clientID}\nPayment Status: ${payStatus}\nClient Message: ${clientText}`);
         res.send({msg :"Order successfully done"})
     } catch (error) {
         console.log(error)
