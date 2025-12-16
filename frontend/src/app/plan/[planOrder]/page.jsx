@@ -2,10 +2,14 @@ import React from 'react'
 import Image from 'next/image'
 import { TfiReload } from "react-icons/tfi";
 import Link from 'next/link';
+import {cookies} from 'next/headers'
 import OrderComponent from '../../../components/OrderComponent';
 const page = async({params}) => {
     let data
     let loader = true
+    const cookie = (await cookies()).get('token')?.value
+    const hasUser = cookie ? true : false
+    console.log(hasUser)
     try {
         const {planOrder} = await params
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/plan/${planOrder}`)
@@ -41,7 +45,7 @@ const page = async({params}) => {
                 <h1 className='text-xl lg:text-2xl font-bold'>Total price</h1>
                 <p className='text-xl'>{data.price} taka</p>
             </div>
-            <OrderComponent data={data}/>
+            {hasUser ? <OrderComponent data={data}/>: <Link href="/user" className='px-5 py-2 bg-blue-600 text-white rounded-md w-fit'>Login to Order</Link>}
         </div>
     </div> 
     : <div>no data</div>}</div>
